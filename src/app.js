@@ -2,10 +2,12 @@
 import express from 'express';
 import routesEmployees from './routes/employees.routes.js';
 import routesIndex from './routes/index.routes.js';
+import cors from 'cors'
 
 const app = express();
 // middlewares before
 app.use(express.json());
+app.use(cors());
 
 // rutas
 app.use('/api', routesEmployees);
