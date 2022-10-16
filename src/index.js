@@ -2,14 +2,12 @@
 import express from 'express';
 import routesEmployees from './routes/employees.routes.js';
 import routesIndex from './routes/index.routes.js';
-import './config.js'
+import { PORT } from './config.js'
 
 const app = express();
 // middlewares before
 app.use(express.json());
 
-// variables 
-app.set('port', process.env.PORT || 3000);
 // rutas
 app.use('/api', routesEmployees);
 app.use(routesIndex);
@@ -22,6 +20,6 @@ app.use((req, res, next) => {
 })
 
 
-app.listen(app.get('port'), () => {
-    console.log(`Server running on port ${app.get('port')}`)
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
 })
